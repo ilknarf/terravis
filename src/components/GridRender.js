@@ -1,23 +1,35 @@
 import React, { useRef, useState } from 'react';
-import { Canvas } from 'react-three-fiber';
-import { OrbitControls } from 'drei';
+import { useUpdate } from 'react-three-fiber';
+import { OrbitControls, MapControls } from 'drei';
 
 // THREE.js
 function GridRender(props) {
   const mesh = useRef();
+
+  const ref = useUpdate((geometry) => {
+    let v = geometry.vertices;
+
+    let side = props.grid.length;
+    for (let i = 0; i < side; i++) {
+      for (let j = 0; j < side; j++) {
+        v[i * side + j].z = props.grid[i][j];
+      }
+    }
+
+    geometry.computeVertexNormals();
+
+    geometry.verticesNeedUpdate = true;
+  }, [props.grid]);
+
+
   return (
-    <Canvas camera={{fov: 75, near: 0.1, far: 1000}} onCreated={({ camera }) => {
-      camera.position.set(0, -60, 50);
-      camera.lookAt(0, 0, 0);
-    }}>
-      <ambientLight />
-      <pointLight position={[10, 10, 100]} />
+    <React.Fragment>
       <mesh ref={mesh}>
-        <planeBufferGeometry attach={'geometry'} args={[80, 80, props.sideLength, props.sideLength]} />
+        <planeGeometry ref={ref} attach={'geometry'} args={[100, 100, props.sideLength, props.sideLength]} position={[0, 0]} />
         <meshPhongMaterial attach={'material'} color={'blue'} wireframe={true} />
       </mesh>
       <OrbitControls />
-    </Canvas>
+    </React.Fragment>
   )
 }
 
