@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.js": "/terravis/static/js/main.d63c8ede.chunk.js",
+    "main.js.map": "/terravis/static/js/main.d63c8ede.chunk.js.map",
+    "runtime-main.js": "/terravis/static/js/runtime-main.bb758952.js",
+    "runtime-main.js.map": "/terravis/static/js/runtime-main.bb758952.js.map",
+    "static/js/2.be20c55b.chunk.js": "/terravis/static/js/2.be20c55b.chunk.js",
+    "static/js/2.be20c55b.chunk.js.map": "/terravis/static/js/2.be20c55b.chunk.js.map",
+    "index.html": "/terravis/index.html",
+    "precache-manifest.2d399f427cd895d5cc39874792c28c12.js": "/terravis/precache-manifest.2d399f427cd895d5cc39874792c28c12.js",
+    "service-worker.js": "/terravis/service-worker.js",
+    "static/js/2.be20c55b.chunk.js.LICENSE.txt": "/terravis/static/js/2.be20c55b.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.bb758952.js",
+    "static/js/2.be20c55b.chunk.js",
+    "static/js/main.d63c8ede.chunk.js"
+  ]
+}
