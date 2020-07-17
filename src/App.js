@@ -1,12 +1,12 @@
 import React from 'react';
 import GridView from './components/GridView';
+import { CssBaseline } from '@material-ui/core';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <GridView />
-      </header>
+      <CssBaseline />
+      <GridView />
     </div>
   );
 }
