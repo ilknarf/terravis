@@ -1,5 +1,6 @@
 import React from 'react';
 import ds from '../utils/diamondSquare';
+import GridRender from './GridRender';
 
 const side = 5;
 
@@ -9,15 +10,8 @@ function GridView(props) {
 
   return (
     <div>
-        {grid.map(v => (
-          <React.Fragment>
-            <p>
-              {v.reduce((prev, curr) => `${prev} ${curr}`)}
-            </p>
-            <br />
-          </React.Fragment>
-        ))}
       <button type="button" onClick={() => setGrid(ds('testSeed', side))}>Grid me!</button>
+      <GridRender sideLength={side - 1} />
     </div>
   )
 }
