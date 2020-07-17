@@ -7,6 +7,7 @@ function diamondSquare(seed, side) {
     grid.push(Array(side).fill(0));
   }
 
+  // "length" is more like the final index, more like the # of edges
   let length = grid.length - 1;
 
   // initialize four corner seeds
@@ -42,6 +43,7 @@ function diamondSquare(seed, side) {
     }
   }
 
+  // need to skip staggers every other row...
   function square() {
     let stagger = currLength / 2;
     for (let xInc = 0; xInc <= length; xInc += stagger) {
