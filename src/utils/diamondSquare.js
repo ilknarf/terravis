@@ -1,14 +1,22 @@
 import hash from './hash';
 
-function diamondSquare(seed) {
-  // unlike Python list comps, doesn't copy reference!
+function diamondSquare(seed, side) {
   // algorithm starts with 2^n + 1 array
-  let grid = Array(129).fill(Array(129).fill(129));
+  let grid = []
+  for (let i = 0; i < side; i++) {
+    grid.push(Array(side).fill(0));
+  }
 
   let length = grid.length - 1;
 
   // initialize four corner seeds
-  let [s1, s2, s3, s4] = Array(4).map(_, i => hash(seed + i) % 1024);
+  function arbitraryString(i) {
+    let arb = ['awfewaf', 'AWEFG@$g', '@##EFAa', '###ERR'];
+    return arb[i];
+  }
+  let [s1, s2, s3, s4] = Array(4)
+    .fill(0)
+    .map((_, i) => hash(seed + arbitraryString(i)) % 1024);
 
   grid[0][0] = s1;
   grid[length][0] = s2;
@@ -26,33 +34,33 @@ function diamondSquare(seed) {
           [xInc, yInc + currLength],
           [xInc + currLength, yInc + currLength],
         ]
-          .map(([x, y], _) => grid[x][y])
+          .map(([x, y]) => grid[x][y])
           .reduce((prev, curr) => prev + curr);
 
-        grid[xInc + currLength >> 1][yInc + currLength >> 1] = sum / 4; // TODO add random number
+        grid[xInc + currLength / 2][yInc + currLength / 2] = sum / 4; // TODO add random number
       }
     }
   }
 
   function square() {
-    let stagger = currLength >> 1;
-    for (let xInc = stagger; xInc < length; xInc += currLength) {
-      for (let yInc = stagger; yInc < length; yInc += currLength) {
+    let stagger = currLength / 2;
+    for (let xInc = 0; xInc <= length; xInc += stagger) {
+      for (let yInc = (stagger + xInc) % currLength; yInc <= length; yInc += currLength) {
         let sum = [
           [xInc, yInc + stagger],
           [xInc + stagger, yInc],
           [xInc, yInc - stagger],
           [xInc - stagger, yInc],
         ]
-          .map(([x, y], _) => {
+          .map(([x, y]) => {
             if (x < 0) {
-              x = length - x;
+              x += length;
             }
             if (x > length) {
               x -= length;
             }
             if (y < 0) {
-              y = length - y;
+              y += length;
             }
             if (y > length) {
               y -= length;
@@ -61,12 +69,12 @@ function diamondSquare(seed) {
           })
           .reduce((prev, curr) => prev + curr);
 
-        grid[xInc + currLength >> 1][yInc + currLength >> 1] = sum / 4; // TODO add random number
+        grid[xInc][yInc] = sum / 4; // TODO add random number
       }
     }
   }
 
-  for (; currLength !== 0; currLength >>= 1) {
+  for (; currLength !== 1; currLength /= 2) {
     diamond();
     square();
   }
