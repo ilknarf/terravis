@@ -30,7 +30,7 @@ function GridView(props) {
         <Container style={{height: '80vh'}}>
             <p>
               Uses the diamond-square algorithm to generate heightmaps, and a single seed to generate each
-              of the four corner seeds.
+              of the four corner seeds. You can click and drag to rotate the model, and scroll in-out to zoom.
             </p>
             <Canvas
               camera={{position: [0, -80, 40]}}
