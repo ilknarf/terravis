@@ -1,4 +1,4 @@
-# [Terravis](ilknarf.github.io/terravis)
+# [Terravis](http://ilknarf.github.io/terravis)
 
 Visualizing terrain-generation algorithms in Javascript and React.
 
