@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/terravis/precache-manifest.2c91fda52af820b8b10cea06c5732c62.js"
+  "/terravis/precache-manifest.687af76043294f21a57d39fd90de5584.js"
 );
 
 self.addEventListener('message', (event) => {
