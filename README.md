@@ -1,7 +1,7 @@
-# Terravis
+# [Terravis](http://ilknarf.github.io/terravis)
 
 Visualizing terrain-generation algorithms in Javascript and React.
 
 Todo:
 - [x] add diamond-square algorithm
-- [ ] add 3-d chart visualization
+- [x] add 3-d chart visualization
