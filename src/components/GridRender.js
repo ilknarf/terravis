@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { useUpdate } from 'react-three-fiber';
 import { OrbitControls, MapControls } from 'drei';
 
