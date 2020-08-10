@@ -75,7 +75,7 @@ function diamondSquare(seed, side) {
           })
           .reduce((prev, curr) => prev + curr);
 
-        grid[xInc][yInc] = sum / 4 + randInc();
+        grid[xInc][yInc] = sum / 4 + randInc() / 10;
       }
     }
   }
